@@ -9,11 +9,13 @@ done
 for f in */Config.json; do
   python3 -c 'import json, sys; json.load(open(sys.argv[1]))' "$f"
 done
+# PopClip's own configs are YAML, so the parse needs pyyaml: use it if python3 has it, else borrow it through uv.
 if python3 -c 'import yaml' 2>/dev/null; then
-  for f in */Config.yaml; do
-    python3 -c 'import yaml, sys; yaml.safe_load(open(sys.argv[1]))' "$f"
-  done
+  py=(python3)
 else
-  echo "pyyaml not available; skipping yaml parse"
+  py=(uv run --quiet --no-project --with pyyaml python3)
 fi
+for f in */Config.yaml; do
+  "${py[@]}" -c 'import yaml, sys; yaml.safe_load(open(sys.argv[1]))' "$f"
+done
 echo "popclip-extensions: ok"
