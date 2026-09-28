@@ -1,6 +1,6 @@
 # PopClip extensions
 
-Three PopClip extensions, each a `.popclipext` folder that installs by double-click: Seq Clip, ElevenLabs TTS and ElevenLabs TTS → iCloud. The repo is public, and the README is written for strangers installing them.
+Five PopClip extensions, each a `.popclipext` folder that installs by double-click: Seq Clip, Instagram Search, SoundCloud Search, ElevenLabs TTS and ElevenLabs TTS → iCloud. The repo is public, and the README is written for strangers installing them.
 
 The check is `tools/test.sh`: shell syntax for every script and a parse of every config.
 
