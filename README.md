@@ -1,10 +1,10 @@
 # PopClip extensions
 
-Three extensions for [PopClip](https://pilotmoon.com/popclip/) on macOS. I built them for my own workflow.
+Five extensions for [PopClip](https://pilotmoon.com/popclip/) on macOS. I built them for my own workflow.
 
 ## Before installing
 
-You need macOS and [PopClip](https://pilotmoon.com/popclip/), which is a separate app. All three extensions also call `python3`; check `python3 --version` in Terminal.
+You need macOS and [PopClip](https://pilotmoon.com/popclip/), which is a separate app. Seq Clip and the two ElevenLabs extensions also call `python3`; check `python3 --version` in Terminal.
 
 Seq Clip works best with a clipboard history manager. It overwrites the current clipboard with each extracted value; without history, only the final copied value remains. Sensitive selections may also remain in your history manager.
 
@@ -15,6 +15,8 @@ Download this repository with **Code > Download ZIP** and unzip it, or clone it 
 ## What each one does
 
 **Seq Clip.** Select a numbered markdown list such as `1. **Name:** Jane` and it pushes each value to the clipboard in reverse order, with a one-second gap so clipboard history managers do not miss rapid writes. With a clipboard history manager (I use Alfred) item 1 lands in slot 1, item 2 in slot 2, so you can paste a form field by field. Handles bold labels, plain labels, and bare values.
+
+**Instagram Search** and **SoundCloud Search.** Search Instagram (through Google, `site:instagram.com`) or SoundCloud for the selection. No script, no key.
 
 **ElevenLabs TTS.** Reads the selection aloud through ElevenLabs. Long text is split at sentence ends and played piece by piece. Click the PopClip spinner to stop.
 
