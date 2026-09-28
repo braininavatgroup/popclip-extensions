@@ -18,4 +18,15 @@ fi
 for f in */Config.yaml; do
   "${py[@]}" -c 'import yaml, sys; yaml.safe_load(open(sys.argv[1]))' "$f"
 done
+# PopClip refuses to install a config whose requirement it doesn't know, so check them here.
+"${py[@]}" - */Config.json */Config.yaml <<'PY'
+import json, sys, yaml
+known = {"text", "copy", "cut", "paste", "formatting", "url", "urls", "email", "emails", "path"}
+for f in sys.argv[1:]:
+    c = json.load(open(f)) if f.endswith(".json") else yaml.safe_load(open(f))
+    for a in c.get("actions") or [c.get("action") or {}]:
+        for r in a.get("requirements", []):
+            if r.lstrip("!") not in known and not r.lstrip("!").startswith("option-"):
+                sys.exit(f"{f}: PopClip does not know the requirement {r!r}")
+PY
 echo "popclip-extensions: ok"

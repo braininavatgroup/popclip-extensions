@@ -11,7 +11,7 @@
 python3 <<'PYEOF'
 import os, re, subprocess, time, sys
 
-text = os.environ.get('POPCLIP_TEXT', '').strip()
+text = os.environ.get('POPCLIP_FULL_TEXT') or os.environ.get('POPCLIP_TEXT', '').strip()
 if not text:
     print('No selection')
     sys.exit(0)
