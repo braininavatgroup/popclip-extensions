@@ -8,7 +8,10 @@
       "title": "Seq Clip",
       "shell script file": "seq-clip.sh",
       "after": "show-status",
-      "requirements": ["text", "multiline"]
+      "requirements": [
+        "text"
+      ],
+      "regex": "(?m)^\\s*\\d+\\.\\s"
     }
   ]
 }
