@@ -8,6 +8,10 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Public-tree denylist
+        uses: braininavatgroup/agent-operating-policy/.github/actions/public-tree-check@ae63f1fd82c5a198cbbb51aee51491407505fd2a
+        with:
+          denylist: ${{ vars.PUBLIC_TREE_DENYLIST }}
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.x"
