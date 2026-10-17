@@ -7,7 +7,7 @@ jobs:
   ci:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Public-tree denylist
         uses: braininavatgroup/agent-operating-policy/.github/actions/public-tree-check@b8c552c8c595504eb3090042422b0e617c4c726b
         with:
