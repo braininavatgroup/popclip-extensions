@@ -20,3 +20,9 @@ jobs:
           python-version: "3.x"
       - run: python -m pip install --quiet pyyaml
       - run: tools/test.sh
+    timeout-minutes: 20
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.event_name }}-${{ github.event.pull_request.number || github.run_id }}-ci
+      cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+permissions:
+  contents: read
