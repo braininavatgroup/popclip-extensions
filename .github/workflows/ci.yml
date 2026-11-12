@@ -12,7 +12,7 @@ jobs:
       - name: Install zsh for the zsh scripts' syntax check
         run: command -v zsh >/dev/null || (sudo apt-get update -qq && sudo apt-get install -y -qq zsh)
       - name: Public-tree denylist
-        uses: braininavatgroup/popclip-extensions/.github/actions/public-tree-check@61f9669d38b2083ae3763b459efdd64ba13ba486
+        uses: braininavatgroup/popclip-extensions/.github/actions/public-tree-check@09831c0c3bf452f64592b110bddc5db18235f0d3
         with:
           denylist: ${{ vars.PUBLIC_TREE_DENYLIST }}
       - uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
